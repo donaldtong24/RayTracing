@@ -20,6 +20,13 @@ class interval {
     bool surrounds(double x) const {
         return min < x && x < max;
     }
+    //helper function ensures that the color components of the final result 
+    //remain within the proper [0,1] bounds
+    double clamp(double x) const {
+        if (x < min) return min;
+        if (x > max) return max;
+        return x;
+    }
 
     static const interval empty, universe;
 };
